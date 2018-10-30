@@ -35,6 +35,7 @@ namespace TwentyOneRemastered
         public string CardName { get { return cardName; } }
         public int Value { get { return value; } }
         public Sprite CardSprite { get { return cardSprite; } } 
+        public CardSuit CardSuit {  get { return cardSuit; } }
 
         #endregion
 
