@@ -233,6 +233,45 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e9167914f7bcd94cb8c9459bc973992, type: 2}
   - {fileID: 11400000, guid: 84c3686b4348e4e4a967fb02a83c94a8, type: 2}
   - {fileID: 11400000, guid: 7efcde9131be5f942a4b4a892914ca79, type: 2}
+  - {fileID: 11400000, guid: eadd043c56ea3594b988e9ba5bdafcb7, type: 2}
+  - {fileID: 11400000, guid: 766e7255d0e96c54aabefd14f95001f2, type: 2}
+  - {fileID: 11400000, guid: 8ac7c542398a0ac4db870cbe00dc108a, type: 2}
+  - {fileID: 11400000, guid: dde04fdcdf2a2d444adff02e31c8aabd, type: 2}
+  - {fileID: 11400000, guid: e34797e48c60c754d90eea6b61ae408e, type: 2}
+  - {fileID: 11400000, guid: 076efdb9dd871ad429ec262c4350b4fc, type: 2}
+  - {fileID: 11400000, guid: a8e7f8903cafca74ab7b1907a01fa4b7, type: 2}
+  - {fileID: 11400000, guid: ab80c5f7418202e449ad1e7e0a0556e9, type: 2}
+  - {fileID: 11400000, guid: 0db9442000d672547b1b0d24133a0cd7, type: 2}
+  - {fileID: 11400000, guid: b6419861db347574b9627cbe3b40c63d, type: 2}
+  - {fileID: 11400000, guid: 68f949d99a8df3c43817b9784758bc71, type: 2}
+  - {fileID: 11400000, guid: 9985ead0aebd1f243980608f7c4f4116, type: 2}
+  - {fileID: 11400000, guid: b3d6c41e921d3a94a9b8797880e37054, type: 2}
+  - {fileID: 11400000, guid: 56ace3d280802824285d0477935091ff, type: 2}
+  - {fileID: 11400000, guid: 9f7153930200a2d48a5d1b7d6ee3827b, type: 2}
+  - {fileID: 11400000, guid: 0ff8d8f60772afe4ab7cf2eb2b0960c9, type: 2}
+  - {fileID: 11400000, guid: 9d11fef08c010694f968f4b082273b75, type: 2}
+  - {fileID: 11400000, guid: 6e166f77ada927d4ba58ede5e87c6f46, type: 2}
+  - {fileID: 11400000, guid: 4377941d397ec8141921eb0e84706a06, type: 2}
+  - {fileID: 11400000, guid: f255093f96522b049a1a61dcfeff83eb, type: 2}
+  - {fileID: 11400000, guid: 36211c44d0907cc42ac9e03f0ceeec66, type: 2}
+  - {fileID: 11400000, guid: 46b3566cdc5b7b9419b3e31c64ea22ec, type: 2}
+  - {fileID: 11400000, guid: 4fbe7c0e50e2ae0498a6d00aac0d8886, type: 2}
+  - {fileID: 11400000, guid: 32bea650545d24e46abba94eac5a3dd9, type: 2}
+  - {fileID: 11400000, guid: 452560888fd61064592a47da6bee6ccc, type: 2}
+  - {fileID: 11400000, guid: 24f4edce3f8f57f41a9a0c32e1626e6b, type: 2}
+  - {fileID: 11400000, guid: ffd9caa578f93f540aefabb8a6548658, type: 2}
+  - {fileID: 11400000, guid: ecb2132851a47ae4db7b8f89c3652fb1, type: 2}
+  - {fileID: 11400000, guid: c033bffb17995ae4c9d45f44c9240051, type: 2}
+  - {fileID: 11400000, guid: 512385401c5292f4da10b1af112a9bcf, type: 2}
+  - {fileID: 11400000, guid: d7a47a3b0f691484bb863875a851fb0d, type: 2}
+  - {fileID: 11400000, guid: d5c2fd861034f6340b42600ae116fc26, type: 2}
+  - {fileID: 11400000, guid: 9c56938fa8854ae4483a58f44fcdbbd6, type: 2}
+  - {fileID: 11400000, guid: bdf58a26970d19641a3f9a314565aa5c, type: 2}
+  - {fileID: 11400000, guid: 1d795b6cb40573941a9e847b5e80f27f, type: 2}
+  - {fileID: 11400000, guid: d41fb10b6da8a024da53e27efcdc248e, type: 2}
+  - {fileID: 11400000, guid: b3e121934e49af74b815f39e61194337, type: 2}
+  - {fileID: 11400000, guid: 27a0799d3a08a944496e139aee8bebe1, type: 2}
+  - {fileID: 11400000, guid: 9aaa086d37e16a04e91ecf804b91a002, type: 2}
 --- !u!4 &564307028
 Transform:
   m_ObjectHideFlags: 0
@@ -280,7 +319,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 78f4cea4641630d4d9b1863dbd730245, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -300,7 +339,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1746297418}
-  - component: {fileID: 1746297419}
   - component: {fileID: 1746297417}
   - component: {fileID: 1746297416}
   m_Layer: 0
@@ -380,17 +418,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1746297419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1746297415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7bf5772a0f3f6648ad48eba512ad277, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2035294041
 Prefab:
   m_ObjectHideFlags: 0

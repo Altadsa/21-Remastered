@@ -62,9 +62,13 @@ namespace TwentyOneRemastered
 
         void ShuffleDeck()
         {
-            foreach (Transform child in transform)
+            int shuffleCount = 3;
+            for (int i = 0; i < shuffleCount; i++)
             {
-                child.SetSiblingIndex(Random.Range(0, transform.childCount));
+                foreach (Transform child in transform)
+                {
+                    child.SetSiblingIndex(Random.Range(0, transform.childCount));
+                } 
             }
         }
 

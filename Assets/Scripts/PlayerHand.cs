@@ -1,29 +1,34 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TwentyOneRemastered
 {
     public class PlayerHand : MonoBehaviour
     {
+        #region VALUES
 
         int handValue;
 
-        float padding = 0.2f;
+        float padding = 0.2f; 
 
-        // Update is called once per frame
+        #endregion
+
+        #region UNITY LIFECYCLE
+
         void Update()
         {
-
             if (Input.GetKeyDown(KeyCode.A) && Deck.Instance.transform.childCount > 0)
             {
                 AddCardToHand();
                 SetOrderInLayer();
-                Debug.Log(handValue);
+                AdjustCardPositions();
             }
 
-        }
+        } 
 
-        public int HandValue { get { return handValue; } }
+        #endregion
+
+
+        #region PRIVATE FUNCTIONS
 
         private void AddCardToHand()
         {
@@ -31,16 +36,6 @@ namespace TwentyOneRemastered
             deckCard.transform.position = transform.position;
             handValue += deckCard.GetComponent<Card>().cardData.Value;
             deckCard.transform.parent = transform;
-        }
-
-        private void AdjustCards()
-        {
-            foreach (Transform child in transform)
-            {
-                Vector2 childPos = child.position;
-                Vector2 newPos = new Vector2(transform.position.x - padding, transform.position.y);
-                child.position = newPos;
-            }
         }
 
         private void SetOrderInLayer()
@@ -51,6 +46,24 @@ namespace TwentyOneRemastered
                 child.GetComponent<SpriteRenderer>().sortingOrder = order;
                 order++;
             }
+        } 
+
+        private void AdjustCardPositions()
+        {
+            if (transform.childCount < 1) { return; }
+            foreach (Transform child in transform)
+            {
+                AdjustCard(child);
+            }
         }
+
+        private void AdjustCard(Transform cardToAdjust)
+        {
+            Vector2 cardPosition = cardToAdjust.transform.position;
+            Vector2 newPos = new Vector2(cardPosition.x - padding, cardPosition.y);
+            cardToAdjust.transform.position = newPos;
+        }
+
+        #endregion
     } 
 }
