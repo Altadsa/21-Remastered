@@ -20,25 +20,27 @@ namespace TwentyOneRemastered
                 SetOrderInLayer();
                 Debug.Log(handValue);
             }
-            foreach (Transform child in transform)
-            {
-                AdjustCards(child);
-            }
+
         }
+
+        public int HandValue { get { return handValue; } }
 
         private void AddCardToHand()
         {
             Transform deckCard = Deck.Instance.transform.GetChild(0);
-            deckCard.transform.position = Vector3.Lerp(deckCard.transform.position, transform.position, 1.0f * Time.deltaTime);
+            deckCard.transform.position = transform.position;
             handValue += deckCard.GetComponent<Card>().cardData.Value;
             deckCard.transform.parent = transform;
         }
 
-        private void AdjustCards(Transform child)
+        private void AdjustCards()
         {
-            Vector2 childPos = child.position;
-            Vector2 newPos = new Vector2(transform.position.x + padding, transform.position.y);
-            child.position = Vector3.Lerp(child.position, newPos, 2.0f * Time.deltaTime);
+            foreach (Transform child in transform)
+            {
+                Vector2 childPos = child.position;
+                Vector2 newPos = new Vector2(transform.position.x - padding, transform.position.y);
+                child.position = newPos;
+            }
         }
 
         private void SetOrderInLayer()
