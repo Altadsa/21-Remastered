@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TwentyOneRemastered
 {
@@ -44,6 +42,7 @@ namespace TwentyOneRemastered
         void Start()
         {
             GenerateDeck();
+            ShuffleDeck();
         } 
 
         #endregion
@@ -58,6 +57,14 @@ namespace TwentyOneRemastered
                 GameObject newCard = Instantiate(cardPrefab);
                 newCard.transform.parent = transform;
                 newCard.name = data.name;
+            }
+        }
+
+        void ShuffleDeck()
+        {
+            foreach (Transform child in transform)
+            {
+                child.SetSiblingIndex(Random.Range(0, transform.childCount));
             }
         }
 
