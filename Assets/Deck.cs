@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TwentyOneRemastered
 {
-    public class Deck : MonoBehaviour
+    public sealed class Deck : MonoBehaviour
     {
 
         const int DECK_SIZE = 10;
@@ -14,6 +14,30 @@ namespace TwentyOneRemastered
 
         [SerializeField]
         CardData[] cardDataArray;
+
+        int childCount;
+
+        #region SINGLETON
+
+        private static Deck deck;
+        private static object padlock = new object();
+
+        public static Deck Instance
+        {
+            get
+            {
+                lock(padlock)
+                {
+                    if (!deck)
+                    {
+                        deck = FindObjectOfType<Deck>();
+                    }
+                    return deck;
+                }
+            }
+        }
+
+        #endregion
 
         #region UNITY LIFECYCLE
 
