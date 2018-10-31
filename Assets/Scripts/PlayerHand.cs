@@ -11,7 +11,7 @@ namespace TwentyOneRemastered
 
         int handValue;
 
-        float padding = 0.2f;
+        float padding = 0.5f;
 
         #endregion
 
@@ -38,23 +38,19 @@ namespace TwentyOneRemastered
 
         #region UNITY LIFECYCLE
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.A) && Deck.Instance.transform.childCount > 0)
-            {
-                AddCardToHand();
-                SetOrderInLayer();
-                AdjustCardPositions();
-                onPlayerHit.Raise();
-            }
-
-        }
-
         #endregion
 
         #region PUBLIC FUNCTIONS
 
         public int HandValue {  get { return handValue; } }
+
+        public void PlayerHit()
+        {
+            AddCardToHand();
+            SetOrderInLayer();
+            AdjustCardPositions();
+            onPlayerHit.Raise();
+        }
 
         #endregion
 
