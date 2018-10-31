@@ -6,10 +6,34 @@ namespace TwentyOneRemastered
     {
         #region VALUES
 
+        [SerializeField]
+        Event onPlayerHit;
+
         int handValue;
 
-        float padding = 0.2f; 
+        float padding = 0.2f;
 
+        #endregion
+
+        #region Singleton
+
+        private static PlayerHand playerHand;
+        private static object padlock = new object();
+
+        public static PlayerHand Instance
+        {
+            get
+            {
+                lock(padlock)
+                {
+                    if (!playerHand)
+                    {
+                        playerHand = FindObjectOfType<PlayerHand>();
+                    }
+                    return playerHand;
+                }
+            }
+        }
         #endregion
 
         #region UNITY LIFECYCLE
@@ -21,12 +45,18 @@ namespace TwentyOneRemastered
                 AddCardToHand();
                 SetOrderInLayer();
                 AdjustCardPositions();
+                onPlayerHit.Raise();
             }
 
-        } 
+        }
 
         #endregion
 
+        #region PUBLIC FUNCTIONS
+
+        public int HandValue {  get { return handValue; } }
+
+        #endregion
 
         #region PRIVATE FUNCTIONS
 

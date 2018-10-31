@@ -7,20 +7,17 @@ namespace TwentyOneRemastered
     [RequireComponent(typeof(PlayerHand))]
     public class Player : MonoBehaviour
     {
-        int handValue;
+        [SerializeField]
+        Event onPlayerBust;
 
-        PlayerHand playerHand;
-
-        // Use this for initialization
-        void Start()
+        public void OnPlayerHit()
         {
-
+            int handValue = PlayerHand.Instance.HandValue;
+            if (handValue > 21)
+            {
+                Debug.Log("Bust!");
+            }
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     } 
 }

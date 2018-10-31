@@ -56,13 +56,14 @@ namespace TwentyOneRemastered
                 cardPrefab.GetComponent<Card>().cardData = data;
                 GameObject newCard = Instantiate(cardPrefab);
                 newCard.transform.parent = transform;
+                newCard.transform.position = transform.position;
                 newCard.name = data.name;
             }
         }
 
         void ShuffleDeck()
         {
-            int shuffleCount = 3;
+            int shuffleCount = 8;
             for (int i = 0; i < shuffleCount; i++)
             {
                 foreach (Transform child in transform)
