@@ -5,13 +5,16 @@ namespace TwentyOneRemastered
     public sealed class Deck : MonoBehaviour
     {
 
-        const int DECK_SIZE = 10;
+        [SerializeField]
+        Event onGameGenerated;
 
         [SerializeField]
         GameObject cardPrefab;
 
         [SerializeField]
         CardData[] cardDataArray;
+
+        const int DECK_SIZE = 10;
 
         int childCount;
 
@@ -39,10 +42,11 @@ namespace TwentyOneRemastered
 
         #region UNITY LIFECYCLE
 
-        void Start()
+        void OnEnable()
         {
             GenerateDeck();
             ShuffleDeck();
+            onGameGenerated.Raise();
         } 
 
         #endregion

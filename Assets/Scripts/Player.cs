@@ -7,10 +7,16 @@ namespace TwentyOneRemastered
     [RequireComponent(typeof(PlayerHand))]
     public class Player : MonoBehaviour
     {
+
         [SerializeField]
         Event onPlayerBust;
 
-        private bool isPlayersTurn = true;
+        [SerializeField]
+        Event onPlayerStand;
+
+        private bool isPlayersTurn = false;
+
+        private int handValue;
 
         #region Singleton
 
@@ -33,11 +39,25 @@ namespace TwentyOneRemastered
 
         #endregion
 
-        public bool IsPlayerTurn { get { return isPlayersTurn; } }
+        #region UNITY LIFECYCLE
+
+        #endregion
+
+        #region PUBLIC FUNCTIONS
+
+        public void OnGameGenerated()
+        {
+            DrawStartingCards();
+        }
+
+        public void OnGameStarted()
+        {
+            isPlayersTurn = true;
+        }
 
         public void OnPlayerHit()
         {
-            int handValue = PlayerHand.Instance.HandValue;
+            handValue = PlayerHand.Instance.HandValue;
             if (handValue > 21)
             {
                 isPlayersTurn = false;
@@ -53,9 +73,23 @@ namespace TwentyOneRemastered
 
         public void PlayerStand()
         {
-            if (!isPlayersTurn) { return; }
+            if (!isPlayersTurn || handValue < 1) { return; }
             isPlayersTurn = false;
+            onPlayerStand.Raise();
         }
 
+        #endregion
+
+        #region PRIVATE FUNCTIONS
+
+        private void DrawStartingCards()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                PlayerHand.Instance.PlayerHit();
+            }
+        }
+
+        #endregion
     } 
 }
