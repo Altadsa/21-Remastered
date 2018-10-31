@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Nine
   value: 9
-  cardSprite: {fileID: 21300000, guid: 10e8a42a50313d341965e07ddca57173, type: 3}
+  cardSprite: {fileID: 21300016, guid: c9e79a75f18bb044f8ef2758df4c0e7e, type: 3}
   cardSuit: 1
