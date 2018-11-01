@@ -2,34 +2,29 @@
 
 namespace TwentyOneRemastered
 {
-
-    public class PlayerHand : MonoBehaviour
+    public class DealerHand : MonoBehaviour
     {
-        #region VALUES
-
         [SerializeField]
-        Event onPlayerHit;
+        Sprite faceDownCardSprite;
 
         int handValue;
 
         float padding = 0.5f;
 
-        #endregion
-
         #region Singleton
 
-        private static PlayerHand playerHand;
+        private static DealerHand playerHand;
         private static object padlock = new object();
 
-        public static PlayerHand Instance
+        public static DealerHand Instance
         {
             get
             {
-                lock(padlock)
+                lock (padlock)
                 {
                     if (!playerHand)
                     {
-                        playerHand = FindObjectOfType<PlayerHand>();
+                        playerHand = FindObjectOfType<DealerHand>();
                     }
                     return playerHand;
                 }
@@ -37,18 +32,11 @@ namespace TwentyOneRemastered
         }
         #endregion
 
-        #region UNITY LIFECYCLE
-
-        #endregion
-
-        #region PUBLIC FUNCTIONS
-
         public int HandValue {  get { return handValue; } }
 
-        public void PlayerHit()
+        public void DealerHit()
         {
             AddCardAndAdjustHand();
-            onPlayerHit.Raise();
         }
 
         private void AddCardAndAdjustHand()
@@ -58,14 +46,11 @@ namespace TwentyOneRemastered
             AdjustCardPositions();
         }
 
-        #endregion
-
-        #region PRIVATE FUNCTIONS
-
         private void AddCardToHand()
         {
             Transform deckCard = Deck.Instance.transform.GetChild(0);
             deckCard.transform.parent = transform;
+            SetFaceDownIfFirstCard(deckCard);
             deckCard.GetComponent<Card>().MoveCard();
             handValue += deckCard.GetComponent<Card>().cardData.Value;
         }
@@ -78,7 +63,7 @@ namespace TwentyOneRemastered
                 child.GetComponent<SpriteRenderer>().sortingOrder = order;
                 order++;
             }
-        } 
+        }
 
         private void AdjustCardPositions()
         {
@@ -95,7 +80,17 @@ namespace TwentyOneRemastered
             Vector2 newPos = new Vector2(cardPosition.x - padding, cardPosition.y);
             cardToAdjust.transform.position = newPos;
         }
-
-        #endregion
+        
+        private void SetFaceDownIfFirstCard(Transform cardToCheck)
+        {
+            if (transform.childCount == 2)
+            {
+                SpriteRenderer cardSR = cardToCheck.GetComponent<SpriteRenderer>();
+                if (cardSR)
+                {
+                    cardSR.sprite = faceDownCardSprite;
+                } 
+            }
+        }
     } 
 }

@@ -45,13 +45,9 @@ namespace TwentyOneRemastered
 
         #region PUBLIC FUNCTIONS
 
-        public void OnGameGenerated()
-        {
-            DrawStartingCards();
-        }
-
         public void OnGameStarted()
         {
+            StartCoroutine(DrawStartingCards());
             isPlayersTurn = true;
         }
 
@@ -82,10 +78,11 @@ namespace TwentyOneRemastered
 
         #region PRIVATE FUNCTIONS
 
-        private void DrawStartingCards()
+       IEnumerator DrawStartingCards()
         {
             for (int i = 0; i < 2; i++)
             {
+                yield return new WaitForSeconds(1.0f);
                 PlayerHand.Instance.PlayerHit();
             }
         }

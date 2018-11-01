@@ -7,7 +7,7 @@ namespace TwentyOneRemastered
     public class Card : MonoBehaviour
     {
         [SerializeField]
-        Sprite defaultSprite;
+        Event onCardFinishedMoving;
 
         public CardData cardData;
 
@@ -15,8 +15,10 @@ namespace TwentyOneRemastered
         int cardValue;
         CardSuit suit;
 
-        // Use this for initialization
-        void Start()
+        Transform parentTransform;
+        bool isMoving;
+
+        void OnEnable()
         {
             Initialize();
         }
@@ -24,12 +26,32 @@ namespace TwentyOneRemastered
         // Update is called once per frame
         void Update()
         {
+            MoveCardIfPossible();
+        }
 
+        private void MoveCardIfPossible()
+        {
+            if (isMoving)
+            {
+                parentTransform = transform.parent;
+                transform.position = Vector3.Lerp(transform.position, parentTransform.position, 4.0f * Time.deltaTime);
+                FinishCardMovement();
+            }
+        }
+
+        private void FinishCardMovement()
+        {
+            if (Mathf.Abs(transform.position.y - parentTransform.position.y) < 0.5f)
+            {
+                transform.position = parentTransform.position;
+                isMoving = false;
+                onCardFinishedMoving.Raise();
+            }
         }
 
         #region PUBLIC FUNCTIONS
 
-      
+        public void MoveCard() { isMoving = true; }
 
         #endregion
 
@@ -43,9 +65,7 @@ namespace TwentyOneRemastered
             if (cardData.CardSprite)
             {
                 GetComponent<SpriteRenderer>().sprite = cardData.CardSprite;
-                return;
             }
-            GetComponent<SpriteRenderer>().sprite = defaultSprite;
         }
 
         #endregion
