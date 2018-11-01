@@ -39,6 +39,19 @@ namespace TwentyOneRemastered
             AddCardAndAdjustHand();
         }
 
+        public void OnPlayerStand()
+        {
+            foreach (Transform child in transform)
+            {
+                Card childCard = child.GetComponent<Card>();
+                SpriteRenderer childSR = child.GetComponent<SpriteRenderer>();
+                if (childCard && childSR)
+                {
+                    childSR.sprite = childCard.cardData.CardSprite;
+                }
+            }
+        }
+
         private void AddCardAndAdjustHand()
         {
             AddCardToHand();

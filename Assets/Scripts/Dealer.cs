@@ -21,7 +21,7 @@ namespace TwentyOneRemastered
         {
             for (int i = 0; i < 2; i++)
             {
-                yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(1.0f);
                 DealerHand.Instance.DealerHit();
             }
             onGameStarted.Raise();

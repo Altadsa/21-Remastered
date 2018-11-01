@@ -41,7 +41,7 @@ namespace TwentyOneRemastered
 
         private void FinishCardMovement()
         {
-            if (Mathf.Abs(transform.position.y - parentTransform.position.y) < 0.5f)
+            if (Mathf.Abs(transform.position.y - parentTransform.position.y) < 0.1f)
             {
                 transform.position = parentTransform.position;
                 isMoving = false;
@@ -57,7 +57,7 @@ namespace TwentyOneRemastered
 
         #region PRIVATE FUNCTIONS
 
-        void Initialize()
+        private void Initialize()
         {
             cardName = cardData.CardName;
             cardValue = cardData.Value;

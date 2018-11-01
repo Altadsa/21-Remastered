@@ -6,13 +6,19 @@ namespace TwentyOneRemastered
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField]
-        Event onGameStarted;
 
-        public void OnGameGenerated()
+        public void OnPlayerStand()
         {
-            onGameStarted.Raise();
+            int playerHand = PlayerHand.Instance.HandValue;
+            int dealerHand = DealerHand.Instance.HandValue;
+
+            DetermineWinner(playerHand, dealerHand);
         }
 
+        private void DetermineWinner(int playerA, int plaverB)
+        {
+            if (playerA > plaverB) { Debug.Log("Player Wins"); }
+            else { Debug.Log("Player Loses"); }
+        }
     } 
 }

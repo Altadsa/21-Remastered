@@ -14,8 +14,6 @@ namespace TwentyOneRemastered
         [SerializeField]
         Event onPlayerStand;
 
-        private bool isPlayersTurn = false;
-
         private int handValue;
 
         #region Singleton
@@ -48,7 +46,6 @@ namespace TwentyOneRemastered
         public void OnGameStarted()
         {
             StartCoroutine(DrawStartingCards());
-            isPlayersTurn = true;
         }
 
         public void OnPlayerHit()
@@ -56,21 +53,17 @@ namespace TwentyOneRemastered
             handValue = PlayerHand.Instance.HandValue;
             if (handValue > 21)
             {
-                isPlayersTurn = false;
                 onPlayerBust.Raise();
             }
         }
 
         public void PlayerHit()
         {
-            if (!isPlayersTurn) { return; }
             PlayerHand.Instance.PlayerHit();
         }
 
         public void PlayerStand()
         {
-            if (!isPlayersTurn || handValue < 1) { return; }
-            isPlayersTurn = false;
             onPlayerStand.Raise();
         }
 
