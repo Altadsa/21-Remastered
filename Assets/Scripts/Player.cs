@@ -14,6 +14,9 @@ namespace TwentyOneRemastered
         [SerializeField]
         Event onPlayerStand;
 
+        [SerializeField]
+        Event onGameReady;
+
         private int handValue;
 
         #region Singleton
@@ -43,7 +46,7 @@ namespace TwentyOneRemastered
 
         #region PUBLIC FUNCTIONS
 
-        public void OnGameStarted()
+        public void OnGameGenerated()
         {
             StartCoroutine(DrawStartingCards());
         }
@@ -78,6 +81,7 @@ namespace TwentyOneRemastered
                 yield return new WaitForSeconds(1.0f);
                 PlayerHand.Instance.PlayerHit();
             }
+            onGameReady.Raise();
         }
 
         #endregion

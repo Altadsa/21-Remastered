@@ -5,6 +5,7 @@ namespace TwentyOneRemastered
 {
     public class EventSystem : MonoBehaviour
     {
+        [HideInInspector]
         public List<Listener> listeners = new List<Listener>();
 
         private void OnEnable()

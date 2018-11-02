@@ -4,7 +4,6 @@ namespace TwentyOneRemastered
 {
     public sealed class Deck : MonoBehaviour
     {
-
         [SerializeField]
         Event onGameGenerated;
 
@@ -47,7 +46,12 @@ namespace TwentyOneRemastered
             GenerateDeck();
             ShuffleDeck();
             onGameGenerated.Raise();
-        } 
+        }
+
+        private void OnDisable()
+        {
+            DestroyAllCards();
+        }
 
         #endregion
 
@@ -58,11 +62,16 @@ namespace TwentyOneRemastered
             foreach (CardData data in cardDataArray)
             {
                 cardPrefab.GetComponent<Card>().cardData = data;
-                GameObject newCard = Instantiate(cardPrefab);
-                newCard.transform.parent = transform;
-                newCard.transform.position = transform.position;
-                newCard.name = data.name;
+                InstantiateCardFromData(data);
             }
+        }
+
+        private void InstantiateCardFromData(CardData data)
+        {
+            GameObject newCard = Instantiate(cardPrefab);
+            newCard.transform.parent = transform;
+            newCard.transform.position = transform.position;
+            newCard.name = data.name;
         }
 
         void ShuffleDeck()
@@ -74,6 +83,15 @@ namespace TwentyOneRemastered
                 {
                     child.SetSiblingIndex(Random.Range(0, transform.childCount));
                 } 
+            }
+        }
+
+        void DestroyAllCards()
+        {
+            Card[] gameCards = FindObjectsOfType<Card>();
+            foreach (Card card in gameCards)
+            {
+                Destroy(card.gameObject);
             }
         }
 

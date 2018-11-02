@@ -6,8 +6,6 @@ namespace TwentyOneRemastered
     [RequireComponent(typeof(DealerHand))]
     public class Dealer : MonoBehaviour
     {
-        [SerializeField]
-        Event onGameStarted;
 
         private int handValue;
 
@@ -16,7 +14,6 @@ namespace TwentyOneRemastered
             StartCoroutine(DrawStartingCards());
         }
 
-
         IEnumerator DrawStartingCards()
         {
             for (int i = 0; i < 2; i++)
@@ -24,7 +21,6 @@ namespace TwentyOneRemastered
                 yield return new WaitForSeconds(1.0f);
                 DealerHand.Instance.DealerHit();
             }
-            onGameStarted.Raise();
         }
 
     } 

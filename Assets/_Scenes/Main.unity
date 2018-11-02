@@ -1348,6 +1348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 980754399}
   - component: {fileID: 980754401}
+  - component: {fileID: 980754402}
   - component: {fileID: 980754400}
   m_Layer: 0
   m_Name: Dealer Hand
@@ -1393,6 +1394,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onGameStarted: {fileID: 11400000, guid: b33a75d95e709a34aaccd24c3614192a, type: 2}
+--- !u!114 &980754402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 980754398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f78d470a239e3440a762cbce7cf4f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1010269007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,8 +1998,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1746297418}
   - component: {fileID: 1746297419}
+  - component: {fileID: 1746297420}
   - component: {fileID: 1746297417}
-  - component: {fileID: 1746297416}
   m_Layer: 0
   m_Name: Player Hand
   m_TagString: Untagged
@@ -1995,52 +2007,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &1746297416
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1746297415}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 78f4cea4641630d4d9b1863dbd730245, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1.53125}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &1746297417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,6 +2045,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onPlayerBust: {fileID: 11400000, guid: f818d1aa0fd69b64a885fc37389df99a, type: 2}
   onPlayerStand: {fileID: 11400000, guid: 1f99913be5b69414a8d5575d4290780b, type: 2}
+--- !u!114 &1746297420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1746297415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f78d470a239e3440a762cbce7cf4f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1752608569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11297372a1646264284312c1d9eab974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onGameEnded: {fileID: 11400000, guid: 2edf1f382980cec44bd8ff4357974d96, type: 2}
 --- !u!1 &1864640834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,6 +2637,23 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - _Event: {fileID: 11400000, guid: 2edf1f382980cec44bd8ff4357974d96, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2007610755}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null

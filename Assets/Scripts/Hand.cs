@@ -2,6 +2,7 @@
 
 namespace TwentyOneRemastered
 {
+    [RequireComponent(typeof(AceHandler))]
     public abstract class Hand : MonoBehaviour
     {
         #region VALUES
@@ -12,6 +13,15 @@ namespace TwentyOneRemastered
 
         #endregion
 
+        #region UNITY LIFECYCLE
+
+        private void OnDisable()
+        {
+            handValue = 0;
+        }
+
+        #endregion
+
         #region PUBLIC FUNCTIONS
 
         public int HandValue { get { return handValue; } }
@@ -19,6 +29,7 @@ namespace TwentyOneRemastered
         public void Hit()
         {
             AddCardAndAdjustHand();
+            HandleAceIfExists();
         }
 
         private void AddCardAndAdjustHand()
@@ -31,6 +42,18 @@ namespace TwentyOneRemastered
         #endregion
 
         #region PRIVATE FUNCTIONS
+
+        private void HandleAceIfExists()
+        {
+            Card[] cardsInHand = GetComponentsInChildren<Card>();
+            foreach (Card card in cardsInHand)
+            {
+                if (card.cardData.Value == 1)
+                {
+                    GetComponent<AceHandler>().Initialize();
+                }
+            }
+        }
 
         private void AddCardToHand()
         {
