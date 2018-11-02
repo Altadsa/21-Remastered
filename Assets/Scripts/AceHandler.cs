@@ -6,13 +6,34 @@ namespace TwentyOneRemastered
 {
     public class AceHandler : MonoBehaviour
     {
-        public int secondHandValue = 0;
+        int firstHandValue = 0;
+
+        int secondHandValue = 0;
+
+        Hand hand;
+
+        private void OnEnable()
+        {
+            hand = GetComponent<Hand>();
+        }
 
         public void Initialize()
         {
-            int firstHandValue = GetComponent<Hand>().HandValue;
+            firstHandValue = hand.HandValue;
             secondHandValue = firstHandValue + 10;
+            CheckForBlackjack();
             Debug.Log(string.Format("First Hand: {0}, Second Hand: {1}", firstHandValue, secondHandValue));
+        }
+
+        private void CheckForBlackjack()
+        {
+            if (hand.transform.childCount == 2)
+            {
+                if (secondHandValue == 21)
+                {
+                    GetComponent<Player>().PlayerStand();
+                }
+            }
         }
     } 
 }

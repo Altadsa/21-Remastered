@@ -28,6 +28,7 @@ namespace TwentyOneRemastered
 
         public void OnPlayerBust()
         {
+            Debug.Log("Player Loses.");
             StartCoroutine(EndGame());
         }
 

@@ -9,5 +9,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7ccdafd241c9574da1ba737df3f4a57, type: 3}
-  m_Name: OnDealerReady
+  m_Name: OnDealerDealt
   m_EditorClassIdentifier: 
