@@ -61,26 +61,25 @@ namespace TwentyOneRemastered
                 sResponse = sListener.FindPropertyRelative("response");
                 sEvent = sListener.FindPropertyRelative("_Event");
                 eventName = sEvent.objectReferenceValue.name;
+
                 GUILayout.BeginVertical();
                 GUILayout.BeginHorizontal();
 
                 foldouts[i] = EditorGUILayout.Foldout(foldouts[i], eventName, true);
+
                 if (i != 0 && GUILayout.Button("Move Up", GUILayout.Width(100)))
                 {
                     listeners.MoveArrayElement(i, i - 1);
                 }
-
                 if (i != listeners.arraySize - 1 && GUILayout.Button("Move Down", GUILayout.Width(100)))
                 {
                     listeners.MoveArrayElement(i, i + 1);
                 }
-
                 if (GUILayout.Button("Delete", GUILayout.Width(100)))
                 {
                     listeners.DeleteArrayElementAtIndex(i);
                     --i;
                 }
-
 
                 GUILayout.EndHorizontal();
                 GUILayout.EndVertical();
