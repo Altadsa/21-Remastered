@@ -2,14 +2,10 @@
 
 namespace TwentyOneRemastered
 {
-    public class DealerHand : MonoBehaviour
+    public class DealerHand : Hand
     {
         [SerializeField]
         Sprite faceDownCardSprite;
-
-        int handValue;
-
-        float padding = 0.5f;
 
         #region Singleton
 
@@ -32,11 +28,10 @@ namespace TwentyOneRemastered
         }
         #endregion
 
-        public int HandValue {  get { return handValue; } }
-
         public void DealerHit()
         {
-            AddCardAndAdjustHand();
+            base.Hit();
+            SetFaceDownIfFirstCard();
         }
 
         public void OnPlayerStand()
@@ -51,54 +46,13 @@ namespace TwentyOneRemastered
                 }
             }
         }
-
-        private void AddCardAndAdjustHand()
-        {
-            AddCardToHand();
-            SetOrderInLayer();
-            AdjustCardPositions();
-        }
-
-        private void AddCardToHand()
-        {
-            Transform deckCard = Deck.Instance.transform.GetChild(0);
-            deckCard.transform.parent = transform;
-            SetFaceDownIfFirstCard(deckCard);
-            deckCard.GetComponent<Card>().MoveCard();
-            handValue += deckCard.GetComponent<Card>().cardData.Value;
-        }
-
-        private void SetOrderInLayer()
-        {
-            int order = 0;
-            foreach (Transform child in transform)
-            {
-                child.GetComponent<SpriteRenderer>().sortingOrder = order;
-                order++;
-            }
-        }
-
-        private void AdjustCardPositions()
-        {
-            if (transform.childCount < 1) { return; }
-            foreach (Transform child in transform)
-            {
-                AdjustCard(child);
-            }
-        }
-
-        private void AdjustCard(Transform cardToAdjust)
-        {
-            Vector2 cardPosition = cardToAdjust.transform.position;
-            Vector2 newPos = new Vector2(cardPosition.x - padding, cardPosition.y);
-            cardToAdjust.transform.position = newPos;
-        }
         
-        private void SetFaceDownIfFirstCard(Transform cardToCheck)
+        private void SetFaceDownIfFirstCard()
         {
-            if (transform.childCount == 2)
+            Transform firstCard = transform.GetChild(0);
+            if (firstCard)
             {
-                SpriteRenderer cardSR = cardToCheck.GetComponent<SpriteRenderer>();
+                SpriteRenderer cardSR = firstCard.GetComponent<SpriteRenderer>();
                 if (cardSR)
                 {
                     cardSR.sprite = faceDownCardSprite;
