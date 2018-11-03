@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace TwentyOneRemastered
 {
@@ -39,18 +40,19 @@ namespace TwentyOneRemastered
 
         #endregion
 
-        #region UNITY LIFECYCLE
+        #region PUBLIC FUNCTIONS
 
-        void OnEnable()
+        public void Initialize()
         {
             GenerateDeck();
             ShuffleDeck();
             onGameGenerated.Raise();
         }
 
-        private void OnDisable()
+        public void ReturnCardsAndShuffle()
         {
-            DestroyAllCards();
+            PlayerHand.Instance.ReturnCardsToDeck();
+            DealerHand.Instance.ReturnCardsToDeck();
         }
 
         #endregion

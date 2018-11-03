@@ -12,6 +12,12 @@ namespace TwentyOneRemastered
         [SerializeField]
         Event onGameStarted;
 
+        [SerializeField]
+        Event onPlayerWin;
+
+        [SerializeField]
+        Event onPlayerLost;
+
         public void GenerateGame()
         {
             onGameStarted.Raise();
@@ -23,19 +29,25 @@ namespace TwentyOneRemastered
             int dealerHand = DealerHand.Instance.HandValue;
 
             DetermineWinner(playerHand, dealerHand);
-            StartCoroutine(EndGame());
+            onGameEnded.Raise();
         }
 
         public void OnPlayerBust()
         {
             Debug.Log("Player Loses.");
-            StartCoroutine(EndGame());
+            onGameEnded.Raise();
         }
 
         private void DetermineWinner(int playerA, int plaverB)
         {
-            if (playerA > plaverB) { Debug.Log("Player Wins"); }
-            else { Debug.Log("Player Loses"); }
+            if (playerA > plaverB)
+            {
+                onPlayerWin.Raise();
+            }
+            else
+            {
+                onPlayerLost.Raise();
+            }
         }
 
         IEnumerator EndGame()

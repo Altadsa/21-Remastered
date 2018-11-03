@@ -13,15 +13,6 @@ namespace TwentyOneRemastered
 
         #endregion
 
-        #region UNITY LIFECYCLE
-
-        private void OnDisable()
-        {
-            handValue = 0;
-        }
-
-        #endregion
-
         #region PUBLIC FUNCTIONS
 
         public int HandValue { get { return handValue; } }
@@ -32,16 +23,33 @@ namespace TwentyOneRemastered
             HandleAceIfExists();
         }
 
+        public void ReturnCardsToDeck()
+        {
+            Transform card;
+            while (transform.childCount > 0)
+            {
+                card = transform.GetChild(0);
+                card.transform.parent = Deck.Instance.transform;
+                card.GetComponent<Card>().MoveCard();
+                card.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            }
+        }
+
+        public void OnGameStarted()
+        {
+            handValue = 0;
+        }
+
+        #endregion
+
+        #region PRIVATE FUNCTIONS
+
         private void AddCardAndAdjustHand()
         {
             AddCardToHand();
             SetOrderInLayer();
             AdjustCardPositions();
         }
-
-        #endregion
-
-        #region PRIVATE FUNCTIONS
 
         private void HandleAceIfExists()
         {
