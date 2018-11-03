@@ -2,6 +2,7 @@
 
 namespace TwentyOneRemastered
 {
+    [RequireComponent(typeof(CardHandler))]
     [RequireComponent(typeof(AceHandler))]
     public abstract class Hand : MonoBehaviour
     {
@@ -17,7 +18,7 @@ namespace TwentyOneRemastered
 
         public int HandValue { get { return handValue; } }
 
-        public void Hit()
+        public virtual void Hit()
         {
             AddCardAndAdjustHand();
             HandleAceIfExists();
@@ -25,14 +26,23 @@ namespace TwentyOneRemastered
 
         public void ReturnCardsToDeck()
         {
-            Transform card;
+
             while (transform.childCount > 0)
             {
-                card = transform.GetChild(0);
-                card.transform.parent = Deck.Instance.transform;
-                card.GetComponent<Card>().MoveCard();
-                card.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                ReturnCardToDeck();
             }
+        }
+
+        private void ReturnCardToDeck()
+        {
+            Transform card = transform.GetChild(0);
+            SpriteRenderer cardSR = card.GetComponent<SpriteRenderer>();
+            Card cardC = card.GetComponent<Card>();
+
+            card.transform.parent = Deck.Instance.transform;
+            cardC.MoveCard();
+            cardSR.sortingOrder = 0;
+            cardSR.sprite = cardC.cardData.CardSprite;
         }
 
         public void OnGameStarted()

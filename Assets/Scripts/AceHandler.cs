@@ -6,6 +6,9 @@ namespace TwentyOneRemastered
 {
     public class AceHandler : MonoBehaviour
     {
+        [SerializeField]
+        Event onPlayerStand;
+
         int firstHandValue = 0;
 
         int secondHandValue = 0;
@@ -27,12 +30,10 @@ namespace TwentyOneRemastered
 
         private void CheckForBlackjack()
         {
-            if (hand.transform.childCount == 2)
+            if (hand.transform.childCount == 2 && secondHandValue == 21)
             {
-                if (secondHandValue == 21)
-                {
-                    GetComponent<Player>().PlayerStand();
-                }
+                Debug.Log("Blackjack for " + hand.name);
+                onPlayerStand.Raise();
             }
         }
     } 

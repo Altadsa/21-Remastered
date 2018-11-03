@@ -18,7 +18,7 @@ namespace TwentyOneRemastered
         [SerializeField]
         Event onPlayerLost;
 
-        public void GenerateGame()
+        public void StartGame()
         {
             onGameStarted.Raise();
         }
@@ -35,6 +35,7 @@ namespace TwentyOneRemastered
         public void OnPlayerBust()
         {
             Debug.Log("Player Loses.");
+            onPlayerLost.Raise();
             onGameEnded.Raise();
         }
 
@@ -42,10 +43,12 @@ namespace TwentyOneRemastered
         {
             if (playerA > plaverB)
             {
+                Debug.Log("Player Wins");
                 onPlayerWin.Raise();
             }
             else
             {
+                Debug.Log("Player Loses");
                 onPlayerLost.Raise();
             }
         }

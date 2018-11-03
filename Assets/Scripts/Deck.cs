@@ -14,8 +14,6 @@ namespace TwentyOneRemastered
         [SerializeField]
         CardData[] cardDataArray;
 
-        const int DECK_SIZE = 10;
-
         int childCount;
 
         #region SINGLETON
@@ -44,12 +42,14 @@ namespace TwentyOneRemastered
 
         public void Initialize()
         {
+            childCount = transform.childCount;
             GenerateDeck();
+            ReturnCards();
             ShuffleDeck();
             onGameGenerated.Raise();
         }
 
-        public void ReturnCardsAndShuffle()
+        public void ReturnCards()
         {
             PlayerHand.Instance.ReturnCardsToDeck();
             DealerHand.Instance.ReturnCardsToDeck();
@@ -61,6 +61,8 @@ namespace TwentyOneRemastered
 
         void GenerateDeck()
         {
+            if (childCount != 0) { return; }
+
             foreach (CardData data in cardDataArray)
             {
                 cardPrefab.GetComponent<Card>().cardData = data;

@@ -39,7 +39,7 @@ namespace TwentyOneRemastered
 
         #region PUBLIC FUNCTIONS
 
-        public void PlayerHit()
+        public override void Hit()
         {
             base.Hit();
             onPlayerHit.Raise();

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace TwentyOneRemastered
 {
     [RequireComponent(typeof(PlayerHand))]
-    public class Player : MonoBehaviour
+    public class Player : CardHandler
     {
 
         [SerializeField]
@@ -17,38 +17,12 @@ namespace TwentyOneRemastered
         [SerializeField]
         Event onGameReady;
 
-        private int handValue;
-
-        #region Singleton
-
-        private static Player player;
-        private static object padlock = new object();
-        public static Player Instance
-        {
-            get
-            {
-                lock(padlock)
-                {
-                    if (!player)
-                    {
-                        player = FindObjectOfType<Player>();
-                    }
-                    return player;
-                }
-            }
-        }
-
-        #endregion
-
-        #region UNITY LIFECYCLE
-
-        #endregion
-
         #region PUBLIC FUNCTIONS
 
-        public void OnGameGenerated()
+        public override void OnGameGenerated()
         {
-            StartCoroutine(DrawStartingCards());
+            base.OnGameGenerated();
+            onGameReady.Raise();
         }
 
         public void OnPlayerHit()
@@ -62,7 +36,7 @@ namespace TwentyOneRemastered
 
         public void PlayerHit()
         {
-            PlayerHand.Instance.PlayerHit();
+            handInstance.Hit();
         }
 
         public void PlayerStand()
@@ -73,16 +47,6 @@ namespace TwentyOneRemastered
         #endregion
 
         #region PRIVATE FUNCTIONS
-
-       IEnumerator DrawStartingCards()
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                yield return new WaitForSeconds(1.0f);
-                PlayerHand.Instance.PlayerHit();
-            }
-            onGameReady.Raise();
-        }
 
         #endregion
     } 

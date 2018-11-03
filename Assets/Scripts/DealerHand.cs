@@ -28,7 +28,7 @@ namespace TwentyOneRemastered
         }
         #endregion
 
-        public void DealerHit()
+        public override void Hit()
         {
             base.Hit();
             SetFaceDownIfFirstCard();

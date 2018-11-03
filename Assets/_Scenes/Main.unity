@@ -1693,7 +1693,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1825272103}
-        m_MethodName: GenerateGame
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1885,6 +1885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f78d470a239e3440a762cbce7cf4f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPlayerStand: {fileID: 11400000, guid: 1f99913be5b69414a8d5575d4290780b, type: 2}
 --- !u!1 &1010269007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,6 +2979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f78d470a239e3440a762cbce7cf4f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPlayerStand: {fileID: 11400000, guid: 1f99913be5b69414a8d5575d4290780b, type: 2}
 --- !u!1 &1752608569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3493,7 +3495,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1825272103}
-        m_MethodName: GenerateGame
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3735,6 +3737,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 570574146}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - _Event: {fileID: 11400000, guid: 58e2a02a4a7aeaa4b93c63db05096f61, type: 2}
@@ -3897,18 +3910,7 @@ MonoBehaviour:
   - _Event: {fileID: 11400000, guid: 2edf1f382980cec44bd8ff4357974d96, type: 2}
     response:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 564307027}
-          m_MethodName: ReturnCardsAndShuffle
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - _Event: {fileID: 11400000, guid: 9f9ff304b3b03f4499d5359ac69de94c, type: 2}
@@ -3916,7 +3918,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1825272103}
-          m_MethodName: GenerateGame
+          m_MethodName: StartGame
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
