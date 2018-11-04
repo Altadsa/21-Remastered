@@ -39,10 +39,15 @@ namespace TwentyOneRemastered
             StartCoroutine(CompareScoresAndDetermineWinner());
         }
 
-        private void DetermineWinner(int playerA, int plaverB)
+        private void DetermineWinner(int playerA, int playerB)
         {
-            Debug.Log(string.Format("Player: {0} | Dealer: {1}", playerA, plaverB));
-            if (playerA > plaverB && playerA <= 21)
+            Debug.Log(string.Format("Player: {0} | Dealer: {1}", playerA, playerB));
+            if (playerA > playerB && playerA <= 21)
+            {
+                Debug.Log("Player Wins");
+                onPlayerWin.Raise();
+            }
+            else if (playerA < playerB && playerB > 21)
             {
                 Debug.Log("Player Wins");
                 onPlayerWin.Raise();

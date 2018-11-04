@@ -34,7 +34,7 @@ namespace TwentyOneRemastered
             SetFaceDownIfFirstCard();
         }
 
-        public void OnPlayerStand()
+        public void OnDealerStand()
         {
             foreach (Transform child in transform)
             {
