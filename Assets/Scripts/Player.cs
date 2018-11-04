@@ -1,15 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TwentyOneRemastered
 {
     [RequireComponent(typeof(PlayerHand))]
     public class Player : CardHandler
     {
-
-        [SerializeField]
-        Event onPlayerBust;
 
         [SerializeField]
         Event onPlayerStand;
@@ -25,18 +20,9 @@ namespace TwentyOneRemastered
             onGameReady.Raise();
         }
 
-        public void OnPlayerHit()
-        {
-            handValue = PlayerHand.Instance.HandValue;
-            if (handValue > 21)
-            {
-                onPlayerBust.Raise();
-            }
-        }
-
         public void PlayerHit()
         {
-            handInstance.Hit();
+            onHit.Raise();
         }
 
         public void PlayerStand()
@@ -46,8 +32,5 @@ namespace TwentyOneRemastered
 
         #endregion
 
-        #region PRIVATE FUNCTIONS
-
-        #endregion
     } 
 }

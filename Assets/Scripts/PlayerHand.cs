@@ -2,7 +2,6 @@
 
 namespace TwentyOneRemastered
 {
-
     public class PlayerHand : Hand
     {
         #region VALUES
@@ -33,20 +32,13 @@ namespace TwentyOneRemastered
         }
         #endregion
 
-        #region UNITY LIFECYCLE
-
-        #endregion
-
         #region PUBLIC FUNCTIONS
 
-        public override void Hit()
+        public override void OnHit()
         {
-            base.Hit();
-            onPlayerHit.Raise();
+            base.OnHit();
         }
 
         #endregion
-
-
     } 
 }

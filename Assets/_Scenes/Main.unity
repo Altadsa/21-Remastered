@@ -1874,6 +1874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2566dc9252c469f41bce28f83826d0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHit: {fileID: 11400000, guid: e57f185c5717af04db5af35e8de54b72, type: 2}
 --- !u!114 &980754402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1886,6 +1887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onPlayerStand: {fileID: 11400000, guid: 1f99913be5b69414a8d5575d4290780b, type: 2}
+  onPlayerBust: {fileID: 11400000, guid: 2e34ee2e10b6f404cab613bb28be3954, type: 2}
 --- !u!1 &1010269007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,7 +2967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7bf5772a0f3f6648ad48eba512ad277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPlayerBust: {fileID: 11400000, guid: f818d1aa0fd69b64a885fc37389df99a, type: 2}
+  onHit: {fileID: 11400000, guid: 76c0da52264705644aea2d6d84ab4741, type: 2}
   onPlayerStand: {fileID: 11400000, guid: 1f99913be5b69414a8d5575d4290780b, type: 2}
   onGameReady: {fileID: 11400000, guid: c264b6272d105124c96bf851af11115a, type: 2}
 --- !u!114 &1746297420
@@ -2980,6 +2982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onPlayerStand: {fileID: 11400000, guid: 1f99913be5b69414a8d5575d4290780b, type: 2}
+  onPlayerBust: {fileID: 11400000, guid: f818d1aa0fd69b64a885fc37389df99a, type: 2}
 --- !u!1 &1752608569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,6 +3751,28 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1746297420}
+          m_MethodName: OnGameStarted
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 980754402}
+          m_MethodName: OnGameStarted
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - _Event: {fileID: 11400000, guid: 58e2a02a4a7aeaa4b93c63db05096f61, type: 2}
@@ -3799,8 +3824,8 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1746297419}
-          m_MethodName: OnPlayerHit
+        - m_Target: {fileID: 1746297417}
+          m_MethodName: OnHit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3813,6 +3838,34 @@ MonoBehaviour:
         - m_Target: {fileID: 1010269009}
           m_MethodName: set_interactable
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1746297420}
+          m_MethodName: OnPlayerHit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - _Event: {fileID: 11400000, guid: e57f185c5717af04db5af35e8de54b72, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 980754400}
+          m_MethodName: OnHit
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3850,6 +3903,28 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 980754400}
+          m_MethodName: OnPlayerStand
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1746297420}
+          m_MethodName: OnPlayerStand
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 980754402}
           m_MethodName: OnPlayerStand
           m_Mode: 1
           m_Arguments:
@@ -3910,7 +3985,18 @@ MonoBehaviour:
   - _Event: {fileID: 11400000, guid: 2edf1f382980cec44bd8ff4357974d96, type: 2}
     response:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1825272103}
+          m_MethodName: OnGameEnded
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - _Event: {fileID: 11400000, guid: 9f9ff304b3b03f4499d5359ac69de94c, type: 2}
@@ -3937,6 +4023,17 @@ MonoBehaviour:
         - m_Target: {fileID: 570574146}
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 980754400}
+          m_MethodName: OnPlayerStand
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

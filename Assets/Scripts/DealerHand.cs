@@ -28,9 +28,9 @@ namespace TwentyOneRemastered
         }
         #endregion
 
-        public override void Hit()
+        public override void OnHit()
         {
-            base.Hit();
+            base.OnHit();
             SetFaceDownIfFirstCard();
         }
 

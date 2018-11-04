@@ -16,17 +16,15 @@ namespace TwentyOneRemastered
 
         #region PUBLIC FUNCTIONS
 
-        public int HandValue { get { return handValue; } }
+        public int HandValue { get { return handValue; } set { handValue = value; } }
 
-        public virtual void Hit()
+        public virtual void OnHit()
         {
             AddCardAndAdjustHand();
-            HandleAceIfExists();
         }
 
         public void ReturnCardsToDeck()
         {
-
             while (transform.childCount > 0)
             {
                 ReturnCardToDeck();
@@ -59,18 +57,6 @@ namespace TwentyOneRemastered
             AddCardToHand();
             SetOrderInLayer();
             AdjustCardPositions();
-        }
-
-        private void HandleAceIfExists()
-        {
-            Card[] cardsInHand = GetComponentsInChildren<Card>();
-            foreach (Card card in cardsInHand)
-            {
-                if (card.cardData.Value == 1)
-                {
-                    GetComponent<AceHandler>().Initialize();
-                }
-            }
         }
 
         private void AddCardToHand()

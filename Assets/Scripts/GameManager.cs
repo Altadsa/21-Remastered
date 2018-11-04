@@ -25,23 +25,24 @@ namespace TwentyOneRemastered
 
         public void OnPlayerStand()
         {
-            int playerHand = PlayerHand.Instance.HandValue;
-            int dealerHand = DealerHand.Instance.HandValue;
-
-            DetermineWinner(playerHand, dealerHand);
             onGameEnded.Raise();
         }
 
         public void OnPlayerBust()
         {
             Debug.Log("Player Loses.");
-            onPlayerLost.Raise();
             onGameEnded.Raise();
+        }
+
+        public void OnGameEnded()
+        {
+            StartCoroutine(CompareScoresAndDetermineWinner());
         }
 
         private void DetermineWinner(int playerA, int plaverB)
         {
-            if (playerA > plaverB)
+            Debug.Log(string.Format("Player: {0} | Dealer: {1}", playerA, plaverB));
+            if (playerA > plaverB && playerA <= 21)
             {
                 Debug.Log("Player Wins");
                 onPlayerWin.Raise();
@@ -53,10 +54,12 @@ namespace TwentyOneRemastered
             }
         }
 
-        IEnumerator EndGame()
+        IEnumerator CompareScoresAndDetermineWinner()
         {
-            yield return new WaitForSeconds(3.0f);
-            onGameEnded.Raise();
+            yield return new WaitForSeconds(2.0f);
+            int playerHand = PlayerHand.Instance.HandValue;
+            int dealerHand = DealerHand.Instance.HandValue;
+            DetermineWinner(playerHand, dealerHand);
         }
     } 
 }
