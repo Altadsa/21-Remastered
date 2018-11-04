@@ -72,7 +72,7 @@ namespace TwentyOneRemastered
         private void CheckForBlackjack()
         {
             if (!hand) { return; }
-            if (hand.transform.childCount <= 2 && secondHandValue == 21)
+            if (hand.transform.childCount == 2 && secondHandValue == 21)
             {
                 Debug.Log("Blackjack for " + hand.name);
                 onPlayerStand.Raise();

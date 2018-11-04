@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: bdd58cef694edc745bf1823a7f38a5e9
+guid: 4c0abb59d3947ef449bc942783d42033
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Options Button_0
-    21300002: Options Button_1
+    21300000: Help Buttons_0
+    21300002: Help Buttons_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Options Button_0
+      name: Help Buttons_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 248
-        height: 248
+        x: 31
+        y: 8
+        width: 160
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4c5f83a5bd9ac64cb0c498251d8e2f1
+      spriteID: 6086ef0d0c4f23045a9cf0b05313cc84
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Options Button_1
+      name: Help Buttons_1
       rect:
         serializedVersion: 2
-        x: 260
-        y: 4
-        width: 248
-        height: 248
+        x: 318
+        y: 8
+        width: 160
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,7 +131,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5475de61444492b4ebe721c1f3e34080
+      spriteID: 8b25a2a001d9a2d45ae37d734aace95a
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 62e0fd91011cc8c4b84abf15fd85f013
+    spriteID: 2a14cbfb6b6e44d4d86f07a4b6cc7f21
     vertices: []
     indices: 
     edges: []
