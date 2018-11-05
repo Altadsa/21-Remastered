@@ -9,9 +9,6 @@ namespace TwentyOneRemastered
         [SerializeField]
         Event onDealerStand;
 
-        [SerializeField]
-        Event onDealerHit;
-
         Hand dealerHand;
 
         int handValue;
@@ -29,7 +26,7 @@ namespace TwentyOneRemastered
         {
             if (handValue < 15)
             {
-                onDealerHit.Raise();
+                onHit.Raise();
             }
             onDealerStand.Raise();
         }
