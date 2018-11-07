@@ -4,12 +4,6 @@ namespace TwentyOneRemastered
 {
     public class PlayerHand : Hand
     {
-        #region VALUES
-
-        [SerializeField]
-        Event onPlayerHit;
-
-        #endregion
 
         #region Singleton
 

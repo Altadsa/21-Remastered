@@ -18,17 +18,7 @@ namespace TwentyOneRemastered
 
         bool doesAceExist = false;
 
-        public void Initialize()
-        {
-            CheckIfAceExists();
-            firstHandValue = hand.HandValue;
-            if (doesAceExist)
-            {
-                secondHandValue = firstHandValue + 10;
-                CheckForBlackjack();
-                Debug.Log(string.Format("First Hand: {0}, Second Hand: {1}", firstHandValue, secondHandValue)); 
-            }
-        }
+
 
         public void OnGameStarted()
         {
@@ -41,7 +31,7 @@ namespace TwentyOneRemastered
         public void OnPlayerHit()
         {
             Initialize();
-            if (firstHandValue > 21)
+            if (hand.HandValue > 21)
             {
                 onPlayerBust.Raise();
             }
@@ -54,6 +44,19 @@ namespace TwentyOneRemastered
             {
                 hand.HandValue = secondHandValue;
                 Debug.Log("New hand value: " + hand.HandValue);
+            }
+        }
+
+        private void Initialize()
+        {
+            CheckIfAceExists();
+
+            if (doesAceExist)
+            {
+                firstHandValue = hand.HandValue;
+                secondHandValue = firstHandValue + 10;
+                CheckForBlackjack();
+                Debug.Log(string.Format("First Hand: {0}, Second Hand: {1}", firstHandValue, secondHandValue)); 
             }
         }
 
