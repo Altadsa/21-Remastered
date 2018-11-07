@@ -11,4 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50b962a6a248724bbe1866bb3605d24, type: 3}
   m_Name: Hit
   m_EditorClassIdentifier: 
-  value: 
+  value: The Hit Button will draw a Card from the Deck and add it to your Hand. If
+    the added Card causes yyour Hand Value to go over 21, your Hand is a Bust and
+    your will lose.

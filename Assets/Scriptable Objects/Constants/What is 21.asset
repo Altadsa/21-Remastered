@@ -9,5 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a50b962a6a248724bbe1866bb3605d24, type: 3}
-  m_Name: String
+  m_Name: What is 21
   m_EditorClassIdentifier: 
+  value: Twenty One (or Blackjack) is a popular Card Game that is prominent in Casinos
+    around the World. The objective of Twenty One is to beat the Dealer, either by
+    getting Blackjack, having a Hand Value lower than 21 whilst the Dealer is over
+    21 or by having a better Hand Value than the Dealer whilst being under 21.

@@ -11,4 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50b962a6a248724bbe1866bb3605d24, type: 3}
   m_Name: Stand
   m_EditorClassIdentifier: 
-  value: 
+  value: When your Stand, you pass to the Dealer who will begin drawing Cards. After
+    the Dealer is finished drawing Cards, he will also Stand and the Winner will be
+    determined.
