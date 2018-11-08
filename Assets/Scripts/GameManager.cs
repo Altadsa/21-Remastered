@@ -13,6 +13,9 @@ namespace TwentyOneRemastered
         Event onGameStarted;
 
         [SerializeField]
+        Event onReturnToMenu;
+
+        [SerializeField]
         Event onPlayerWin;
 
         [SerializeField]
@@ -21,6 +24,11 @@ namespace TwentyOneRemastered
         public void StartGame()
         {
             onGameStarted.Raise();
+        }
+
+        public void ReturnToMenu()
+        {
+            onReturnToMenu.Raise();
         }
 
         public void OnPlayerStand()

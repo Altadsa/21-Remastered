@@ -31,18 +31,6 @@ namespace TwentyOneRemastered
             }
         }
 
-        private void ReturnCardToDeck()
-        {
-            Transform card = transform.GetChild(0);
-            SpriteRenderer cardSR = card.GetComponent<SpriteRenderer>();
-            Card cardC = card.GetComponent<Card>();
-
-            card.transform.parent = Deck.Instance.transform;
-            cardC.MoveCard();
-            cardSR.sortingOrder = 0;
-            cardSR.sprite = cardC.cardData.CardSprite;
-        }
-
         public void OnGameStarted()
         {
             handValue = 0;
@@ -91,6 +79,18 @@ namespace TwentyOneRemastered
             Vector2 cardPosition = cardToAdjust.transform.position;
             Vector2 newPos = new Vector2(cardPosition.x - padding, cardPosition.y);
             cardToAdjust.transform.position = newPos;
+        }
+
+        private void ReturnCardToDeck()
+        {
+            Transform card = transform.GetChild(0);
+            SpriteRenderer cardSR = card.GetComponent<SpriteRenderer>();
+            Card cardC = card.GetComponent<Card>();
+
+            card.transform.parent = Deck.Instance.transform;
+            cardC.MoveCard();
+            cardSR.sortingOrder = 0;
+            cardSR.sprite = cardC.cardData.CardSprite;
         }
 
         #endregion
