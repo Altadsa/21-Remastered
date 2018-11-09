@@ -8,10 +8,7 @@ namespace TwentyOneRemastered
         [SerializeField] protected
         Event onHit;
 
-        [SerializeField]
-        Event onGameReady;
-
-        public void OnGameGenerated()
+        public virtual void OnGameGenerated()
         {
             StartCoroutine(DrawStartingCards());
         }
@@ -23,7 +20,6 @@ namespace TwentyOneRemastered
                 yield return new WaitForSeconds(1.0f);
                 onHit.Raise();
             }
-            onGameReady.Raise();
         }
 
     } 
