@@ -40,7 +40,7 @@ namespace TwentyOneRemastered
             if (secondHandValue == 0) { return; }
             if (secondHandValue < 22)
             {
-                hand.HandValue = secondHandValue;
+                hand.SetHandValue(secondHandValue);
                 Debug.Log("New hand value: " + hand.HandValue);
             }
         }
@@ -73,7 +73,7 @@ namespace TwentyOneRemastered
         private void CheckForBlackjack()
         {
             if (!hand) { return; }
-            if (hand.transform.childCount == 2 && secondHandValue == 21)
+            if (hand.transform.childCount == 2 && (secondHandValue == 21 || secondHandValue == 11))
             {
                 Debug.Log("Blackjack for " + hand.name);
                 onPlayerStand.Raise();

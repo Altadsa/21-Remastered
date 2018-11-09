@@ -16,7 +16,9 @@ namespace TwentyOneRemastered
 
         #region PUBLIC FUNCTIONS
 
-        public int HandValue { get { return handValue; } set { handValue = value; } }
+        public int HandValue { get { return handValue; } }
+
+        public void SetHandValue(int value) { handValue = value; }
 
         public virtual void OnHit()
         {
